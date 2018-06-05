@@ -6,20 +6,16 @@ import policiesEndpoint from './resources/policies/all';
 import Application from './base/Application';
 
 class Acrosure {
-    constructor(token, secret, name) {
+    constructor(token, secret, version) {
         this._token = token;
         this._secret = secret;
-        this.name = name;
+        this.version = version;
 
         this.Application = class extends Application {
             constructor(params) {
                 super(params)
-                this.name = 'sub ' + name;
             }
-            echo() {
-                console.log(this.name)
-            }
-        }
+        };
 
         this.applications = Object.keys(applicationsEndpoint).map((k) => (applicationsEndpoint[k].bind(this)));
         this.policies = Object.keys(policiesEndpoint).map((k) => (policiesEndpoint[k].bind(this)));
