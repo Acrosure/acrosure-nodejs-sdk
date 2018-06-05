@@ -6,6 +6,11 @@ import policiesEndpoint from './resources/policies/all';
 import Application from './base/Application';
 
 class Acrosure {
+    // Class attribute
+    static get base() { return require('./base/all') }
+    static get util() { return require('./util/all') }
+
+    // Instance
     constructor(token, secret, version) {
         this._token = token;
         this._secret = secret;
