@@ -69,3 +69,7 @@ typings/
 
 # test file
 mytest.js
+
+# test snapshot
+
+__snapshots__
