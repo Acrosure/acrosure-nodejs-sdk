@@ -11,17 +11,19 @@ class Acrosure {
     static get util() { return require('./util/all') }
 
     // Instance
-    constructor(token, secret, version) {
+    constructor(token, secret, version = 'v1') {
         this._token = token;
         this._secret = secret;
-        this.version = version;
+        this._version = version;
 
+        // Client's class (inherit from class in acrosure.base)
         this.Application = class extends Application {
             constructor(params) {
-                super(params)
+                super(params);
             }
         };
 
+        // Resource
         this.applications = Object.keys(applicationsEndpoint).map((k) => (applicationsEndpoint[k].bind(this)));
         this.policies = Object.keys(policiesEndpoint).map((k) => (policiesEndpoint[k].bind(this)));
 
