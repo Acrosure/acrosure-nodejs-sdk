@@ -68,4 +68,4 @@ typings/
 .serverless
 
 # test file
-test.js
+mytest.js
