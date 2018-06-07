@@ -1,5 +1,7 @@
 import name from './name';
 
-export default {
-    name
-};
+export default ({token,secret}) => ({
+  token,
+  secret,  
+  name
+});

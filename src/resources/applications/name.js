@@ -1,5 +1,6 @@
-const name = () => {
-    console.log('application' + this.name);
+function name() {
+  console.log(this)
+  console.log('application' + this.token);
 }
 
 export default name;
