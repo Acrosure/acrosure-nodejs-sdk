@@ -2,7 +2,6 @@ import Application from '../../base/Application'
 
 // function createGen() {
 async function create(params) {
-  console.log('eiei')
   const app = new Application({
     form: params,
     token: this.token,

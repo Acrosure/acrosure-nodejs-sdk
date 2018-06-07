@@ -13,8 +13,6 @@ export default class Application {
   }
 
   // getter
-
-  console.log(app)
   get status() {
     return this.form.status
   }
@@ -24,10 +22,8 @@ export default class Application {
     if (this.id) {
       throw new Error('Cannot create new application that already has application_id')
     }
-    console.log('eiei2')
     const res = await connectAPI('/applications/create', this.token, this.form)
     this.id = res.data.application_id || res.data.id
-    console.log('id:', this.id)
     return res
   }
 
