@@ -1,3 +1,5 @@
+import constant from '../constant';
+
 const http = require('https')
 const querystring = require('querystring')
 
@@ -7,8 +9,8 @@ function connectAPI(endpoint, auth, data) {
     const postData = JSON.stringify(data)
 
     const options = {
-      hostname: 'api.phantompage.com',
-      port: 443,
+      hostname: constant.host || 'localhost',
+      port: constant.port || 443,
       path: endpoint,
       method: 'POST',
       headers: {
