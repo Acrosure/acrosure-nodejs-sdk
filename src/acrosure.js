@@ -3,12 +3,15 @@
 import applicationsEndpoint from './resources/applications/all';
 import policiesEndpoint from './resources/policies/all';
 
+import base from './base/all';
+import util from './util/all';
+
 import Application from './base/Application';
 
 class Acrosure {
     // Class attribute
-    static get base() { return require('./base/all') }
-    static get util() { return require('./util/all') }
+    static get base() { return base }
+    static get util() { return util }
 
     // Instance
     constructor(token, secret, version = 'v1') {
