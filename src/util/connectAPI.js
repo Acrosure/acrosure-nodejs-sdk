@@ -1,10 +1,10 @@
-const http = require('https');
+const http = require('https')
 const querystring = require('querystring')
 
 function connectAPI(endpoint, auth, data) {
 
   return new Promise((resolve, reject) => {
-    const postData = JSON.stringify(data);
+    const postData = JSON.stringify(data)
 
     const options = {
       hostname: 'api.phantompage.com',
@@ -16,26 +16,26 @@ function connectAPI(endpoint, auth, data) {
         'Content-Length': Buffer.byteLength(postData),
         'Authorization': 'Bearer ' + auth
       }
-    };
+    }
 
     const req = http.request(options, (res) => {
-      res.setEncoding('utf8');
+      res.setEncoding('utf8')
       data = ''
       res.on('data', (chunk) => {
-        data += chunk;
-      });
+        data += chunk
+      })
       res.on('end', () => {
         resolve(JSON.parse(data))
-      });
-    });
+      })
+    })
 
     req.on('error', (err) => {
       reject(err)
-    });
+    })
 
-    req.write(postData);
-    req.end();
+    req.write(postData)
+    req.end()
   })
 }
 
-export default connectAPI;
+export default connectAPI
