@@ -1,9 +1,9 @@
 import create from './create';
-import name from './name';
+import get from './get';
 
 export default ({token,secret}) => ({
   token,
   secret,
   create,
-  name,
+  get
 });

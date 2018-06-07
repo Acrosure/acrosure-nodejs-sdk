@@ -1,18 +1,16 @@
 import Application from '../../base/Application';
 
 // function createGen() {
-async function create(params, create) {
-  app = new Application({
+async function create(params) {
+  console.log("eiei")
+  const app = new Application({
     form: params,
-    token
+    token: this.token,
+    secret: this.secret
   });
   await app.create()
   return app;
 }
 // }
-
-function get(appID) {
-  return new Application();
-}
 
 export default create;

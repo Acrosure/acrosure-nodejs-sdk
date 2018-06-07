@@ -1,7 +1,7 @@
 const http = require('https');
 const querystring = require('querystring')
 
-function connectAPI(endpoint, token, data) {
+function connectAPI(endpoint, auth, data) {
 
   return new Promise((resolve, reject) => {
     const postData = JSON.stringify(data);
@@ -14,7 +14,7 @@ function connectAPI(endpoint, token, data) {
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(postData),
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + auth
       }
     };
 
