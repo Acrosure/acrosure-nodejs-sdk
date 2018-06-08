@@ -1,1 +1,1 @@
-module.exports = require('./src/acrosure')
+module.exports = require('./lib/acrosure')

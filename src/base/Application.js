@@ -22,10 +22,9 @@ export default class Application {
     if (this.id) {
       throw new Error('Cannot create new application that already has application_id')
     }
-    const res = await connectAPI('/applications/create', this.token, {
-      ...this.form,
+    const res = await connectAPI('/applications/create', this.token, Object.assign({}, this.form, {
       product_id
-    })
+    }))
     this.id = res.data.application_id || res.data.id
     return res
   }

@@ -27,7 +27,7 @@ class Acrosure {
     // Resource
     Object.assign(this, {
       applications: applicationsEndpoint(this),
-      policies: policiesEndpoint(this)
+      policies: policiesEndpoint(this),
     })
   }
 }
