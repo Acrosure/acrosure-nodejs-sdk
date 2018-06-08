@@ -71,6 +71,9 @@ typings/
 mytest.js
 test/constant.js
 
+# vscode
+.vscode
+
 # test snapshot
 
 __snapshots__
