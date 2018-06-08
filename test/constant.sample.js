@@ -1,11 +1,11 @@
-const private = 'sample'
-const public = 'sample'
-const app_id = 'sample'
-const prod_id = 'sample'
+const secret = 'sample'
+const public_tokn = 'sample'
+const application_id = 'sample'
+const product_id = 'sample'
 
 export default {
-  private,
-  public,
-  app_id,
-  prod_id
+  secret,
+  public_tokn,
+  application_id,
+  product_id
 }

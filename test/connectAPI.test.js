@@ -2,8 +2,11 @@ import connectAPI from '../src/util/connectAPI'
 import constant from './constant';
 
 it('connectAPI with /applications/create', () => {
-  return connectAPI('/applications/create', constant.public, {
-    product_id: consta.prod_id,
+  const acrosure = require('../src/acrosure')
+  acrosure.setToken('tokn_sample_public')
+
+  return connectAPI('/applications/create', {
+    product_id: constant.product_id,
     form_data: {
       policy_unit: "Y",
       insurer_list: [],
@@ -18,8 +21,12 @@ it('connectAPI with /applications/create', () => {
 
 it('connectAPI with /applications/update', () => {
   expect.assertions(1)
-  return connectAPI('/applications/update', constant.public, {
-    application_id: constant.app_id,
+
+  const acrosure = require('../src/acrosure')
+  acrosure.setToken('tokn_sample_public')
+
+  return connectAPI('/applications/update', {
+    application_id: constant.application_id,
     form_data: {
       policy_unit: 'Y',
       insurer_list: [{
