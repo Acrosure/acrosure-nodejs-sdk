@@ -2,10 +2,9 @@
 
 The official Acrosure SDK for NodeJS.
 
+## Installation & build
 
-
-## Installation
-
+install via npm
 
 ```shell
 npm install acrosure-nodejs-sdk
@@ -16,16 +15,15 @@ npm install acrosure-nodejs-sdk
 You can start by creating an API client
 
 ```JavaScript
-import Acrosure from 'acrosure-nodejs-sdk'
-
-const client = Acrosure('Your-Public-Key', 'Your-Private-Key')
+const acrosure = require('acrosure-nodejs-sdk')
+acrosure.setToken('Your-Token')
 ```
 
 ### Using application
 
 create or get app via client
-```JavaScript
 
+```JavaScript
 const newApp = await client.applications.create({
       package_id: 'Your-Package-ID'
       form_data: {
@@ -39,17 +37,13 @@ const newApp = await client.applications.create({
       }
     })
 
-const existedApp = await client.applications.get(''Your-App-ID')
-
+const existedApp = await client.applications.get('Your-App-ID')
 ```
 
 or create via Acrosure.base.Application
 
 ```JavaScript
-  const app = new Application({
-    token: Your-Public-Key,
-    secret: Your-Private-Key,
-    form: {
+  const app = new acrosure.classes.Application({
       form_data: {
         policy_unit: 'Y',
         insurer_list: [],
@@ -59,18 +53,16 @@ or create via Acrosure.base.Application
           'WORLDWIDE'
         ]
       }
-    }
+
   })
 
-  const registerResponse = await app.register('Your-Package-ID')
+  const registerResponse = await app.create()
 ```
 
 You can interact with an application instance like an ORM model and edit it's value directly.
 
 ```JavaScript
-
-app.form.form_data.countries = ['Thailand'] 
+app.form_data.countries = ['Thailand']
 
 app.save()
-
 ```
