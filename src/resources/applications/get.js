@@ -2,15 +2,11 @@ import Application from '../../base/Application'
 import connectAPI from '../../util/connectAPI'
 
 async function get(application_id) {
-  const res = await connectAPI('/applications/get', this.token, {
+  const res = await connectAPI('/applications/get', {
     application_id
   })
-  const form = res.data
-  return new Application({
-    form,
-    token: this.token,
-    secret: this.secret
-  })
+  const data = res.data
+  return new Application(data)
 }
 
 export default get

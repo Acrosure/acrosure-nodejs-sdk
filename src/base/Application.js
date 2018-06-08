@@ -1,30 +1,27 @@
 import connectAPI from '../util/connectAPI'
 
-export default class Application {
-  constructor({
-    token,
-    secret,
-    form
-  }) {
-    this.token = token || ''
-    this.secret = secret || ''
-    this.form = form || {}
-    this.id = form.application_id || form.id
-  }
+const removeApplicationMethod = (obj) => (
+  Object.keys(obj)
+  .filter((k) => typeof (obj[k]) !== 'function')
+  .reduce((o, k) => {
+    o[k] = obj[k]
+    return o
+  }, {})
+)
 
-  // getter
-  get status() {
-    return this.form.status
+export default class Application {
+  constructor(data) {
+    Object.assign(this, data)
+    this.id = data.id || data.application_id
   }
 
   // CRUD method
-  async register(product_id) {
+  async create() {
     if (this.id) {
       throw new Error('Cannot create new application that already has application_id')
     }
-    const res = await connectAPI('/applications/create', this.token, Object.assign({}, this.form, {
-      product_id
-    }))
+    const data = removeApplicationMethod(this)
+    const res = await connectAPI('/applications/create', data)
     this.id = res.data.application_id || res.data.id
     return res
   }
@@ -33,14 +30,15 @@ export default class Application {
     if (!this.id) {
       throw new Error('Cannot update application that has no application_id')
     }
-    return connectAPI('/applications/update', this.token, this.form)
+    const data = removeApplicationMethod(this)
+    return connectAPI('/applications/update', data)
   }
 
   async confirm() {
     if (!this.id) {
       throw new Error('Cannot confirm application that has no application_id')
     }
-    return connectAPI('/applications/confirm', this.secret, {
+    return connectAPI('/applications/confirm', {
       application_id: this.id
     })
   }

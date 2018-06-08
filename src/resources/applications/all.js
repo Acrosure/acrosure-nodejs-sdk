@@ -1,9 +1,7 @@
 import create from './create'
 import get from './get'
 
-export default ({token,secret}) => ({
-  token,
-  secret,
+export default {
   create,
   get
-})
+}

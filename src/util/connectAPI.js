@@ -3,7 +3,7 @@ import constant from '../constant';
 const http = require('https')
 const querystring = require('querystring')
 
-function connectAPI(endpoint, auth, data) {
+const connectAPI = (endpoint, data) => {
 
   return new Promise((resolve, reject) => {
     const postData = JSON.stringify(data)
@@ -16,9 +16,11 @@ function connectAPI(endpoint, auth, data) {
       headers: {
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(postData),
-        'Authorization': 'Bearer ' + auth
+        'Authorization': 'Bearer ' + global.ACROSURE_NODEJS_SDK_TOKEN 
       }
     }
+
+    console.log("token:", global.ACROSURE_NODEJS_SDK_TOKEN)
 
     const req = http.request(options, (res) => {
       res.setEncoding('utf8')
@@ -27,7 +29,11 @@ function connectAPI(endpoint, auth, data) {
         data += chunk
       })
       res.on('end', () => {
-        resolve(JSON.parse(data))
+        const response = JSON.parse(data)
+        if(response.status === 'ok'){
+          resolve(response)
+        }
+        reject(new Error(response.message))
       })
     })
 

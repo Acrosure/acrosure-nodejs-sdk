@@ -1,4 +1,2 @@
-export default ({token,secret}) => ({
-  token,
-  secret,  
-})
+export default {
+}
