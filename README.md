@@ -43,7 +43,7 @@ const existedApp = await client.applications.get('Your-App-ID')
 or create via Acrosure.base.Application
 
 ```JavaScript
-  const app = new acrosure.classes.Application({
+  const app = new acrosure.Application({
       form_data: {
         policy_unit: 'Y',
         insurer_list: [],

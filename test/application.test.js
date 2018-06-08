@@ -4,7 +4,7 @@ import constant from './constant';
 it('create new application', async () => {
   const acrosure = require('../src/acrosure')
   acrosure.setToken('tokn_sample_public')
-  const app = new acrosure.classes.Application({
+  const app = new acrosure.Application({
     product_id: constant.product_id,
     form_data: {
       policy_unit: "Y",
@@ -23,7 +23,7 @@ it('create new application', async () => {
 it('update exist application', async () => {
   const acrosure = require('../src/acrosure')
   acrosure.setToken('tokn_sample_public')
-  const app = new acrosure.classes.Application({
+  const app = new acrosure.Application({
     application_id: constant.application_id,
     form_data: {
       policy_unit: 'Y',

@@ -9,6 +9,5 @@ const setToken = (token) => {
 }
 
 module.exports = Object.assign({
-  classes,
   setToken
-}, resources)
+}, resources, classes)
