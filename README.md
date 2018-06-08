@@ -8,7 +8,7 @@ The official Acrosure SDK for NodeJS.
 
 
 ```shell
-npm install acrosure-node
+npm install acrosure-nodejs-sdk
 ```
 
 ## Getting Started & Usage
@@ -29,12 +29,12 @@ create or get app via client
 const newApp = await client.applications.create({
       package_id: 'Your-Package-ID'
       form_data: {
-        policy_unit: "Y",
+        policy_unit: 'Y',
         insurer_list: [],
-        policy_date: "2018-06-05T06:19:28.938Z",
-        expiry_date: "2019-06-05T06:19:28.938Z",
+        policy_date: '2018-06-05T06:19:28.938Z',
+        expiry_date: '2019-06-05T06:19:28.938Z',
         countries: [
-          "WORLDWIDE"
+          'WORLDWIDE'
         ]
       }
     })
@@ -51,12 +51,12 @@ or create via Acrosure.base.Application
     secret: Your-Private-Key,
     form: {
       form_data: {
-        policy_unit: "Y",
+        policy_unit: 'Y',
         insurer_list: [],
-        policy_date: "2018-06-05T06:19:28.938Z",
-        expiry_date: "2019-06-05T06:19:28.938Z",
+        policy_date: '2018-06-05T06:19:28.938Z',
+        expiry_date: '2019-06-05T06:19:28.938Z',
         countries: [
-          "WORLDWIDE"
+          'WORLDWIDE'
         ]
       }
     }
@@ -69,7 +69,7 @@ You can interact with an application instance like an ORM model and edit it's va
 
 ```JavaScript
 
-app.form.form_data.countries = ['LAOS'] 
+app.form.form_data.countries = ['Thailand'] 
 
 app.save()
 
