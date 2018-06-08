@@ -69,6 +69,7 @@ typings/
 
 # test file
 mytest.js
+test/constant.js
 
 # test snapshot
 
