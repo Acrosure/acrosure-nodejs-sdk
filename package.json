@@ -1,25 +1,30 @@
 {
-    "name": "acrosure-node-sdk",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "./node_modules/,bin/jest",
-        "build": "./node_modules/.bin/babel src --out-dir lib"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Acrosure/acrosure-nodejs-sdk.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Acrosure/acrosure-nodejs-sdk/issues"
-    },
-    "homepage": "https://github.com/Acrosure/acrosure-nodejs-sdk#readme",
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-preset-es2015": "^6.24.1",
-        "jest": "^23.1.0"
-    }
+  "name": "acrosure-node-sdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acrosure/acrosure-nodejs-sdk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acrosure/acrosure-nodejs-sdk/issues"
+  },
+  "homepage": "https://github.com/Acrosure/acrosure-nodejs-sdk#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^23.1.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {},
+  "description": ""
 }
