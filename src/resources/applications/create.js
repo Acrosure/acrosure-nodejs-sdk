@@ -7,7 +7,7 @@ async function create(params) {
     token: this.token,
     secret: this.secret
   })
-  await app.create()
+  await app.register(params.product_id)
   return app
 }
 // }
