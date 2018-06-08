@@ -22,6 +22,7 @@ export default class Application {
     }
     const data = removeApplicationMethod(this)
     const res = await connectAPI('/applications/create', data)
+    Object.assign(this, res.data)
     this.id = res.data.application_id || res.data.id
     return res
   }
@@ -31,7 +32,9 @@ export default class Application {
       throw new Error('Cannot update application that has no application_id')
     }
     const data = removeApplicationMethod(this)
-    return connectAPI('/applications/update', data)
+    const res = await connectAPI('/applications/update', data)
+    Object.assign(this, res.data)
+    return res
   }
 
   async confirm() {
