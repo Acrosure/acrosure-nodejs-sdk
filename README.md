@@ -16,7 +16,7 @@ npm install acrosure-nodejs-sdk
 You can start by creating an API client
 
 ```JavaScript
-import Acrosure from 'acrosure-node'
+import Acrosure from 'acrosure-nodejs-sdk'
 
 const client = Acrosure('Your-Public-Key', 'Your-Private-Key')
 ```
