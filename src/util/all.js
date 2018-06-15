@@ -1,5 +1,5 @@
-import connectAPI from './connectAPI'
+import callAPI from './callAPI'
 
 export default {
-  connectAPI
+  callAPI
 }

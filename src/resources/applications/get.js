@@ -1,8 +1,8 @@
 import Application from '../../base/Application'
-import connectAPI from '../../util/connectAPI'
+import callAPI from '../../util/callAPI'
 
 async function get(application_id) {
-  const res = await connectAPI('/applications/get', {
+  const res = await callAPI('/applications/get', {
     application_id
   })
   const data = res.data

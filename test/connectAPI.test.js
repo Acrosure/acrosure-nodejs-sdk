@@ -1,11 +1,11 @@
-import connectAPI from '../src/util/connectAPI'
+import callAPI from '../src/util/callAPI'
 import constant from './constant';
 
-it('connectAPI with /applications/create', () => {
+it('callAPI with /applications/create', () => {
   const acrosure = require('../src/acrosure')
   acrosure.setToken('tokn_sample_public')
 
-  return connectAPI('/applications/create', {
+  return callAPI('/applications/create', {
     product_id: constant.product_id,
     form_data: {
       policy_unit: "Y",
@@ -19,13 +19,13 @@ it('connectAPI with /applications/create', () => {
   }).then(data => expect(data.status).toEqual("ok"))
 })
 
-it('connectAPI with /applications/update', () => {
+it('callAPI with /applications/update', () => {
   expect.assertions(1)
 
   const acrosure = require('../src/acrosure')
   acrosure.setToken('tokn_sample_public')
 
-  return connectAPI('/applications/update', {
+  return callAPI('/applications/update', {
     application_id: constant.application_id,
     form_data: {
       policy_unit: 'Y',

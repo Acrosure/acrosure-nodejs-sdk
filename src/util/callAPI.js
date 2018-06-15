@@ -1,9 +1,9 @@
 import constant from '../constant';
 
-const http = require('https')
+const https = require('https')
 const querystring = require('querystring')
 
-const connectAPI = (endpoint, data) => {
+const callAPI = (endpoint, data) => {
 
   return new Promise((resolve, reject) => {
     const postData = JSON.stringify(data)
@@ -22,7 +22,7 @@ const connectAPI = (endpoint, data) => {
 
     console.log("token:", global.ACROSURE_NODEJS_SDK_TOKEN)
 
-    const req = http.request(options, (res) => {
+    const req = https.request(options, (res) => {
       res.setEncoding('utf8')
       data = ''
       res.on('data', (chunk) => {
@@ -46,4 +46,4 @@ const connectAPI = (endpoint, data) => {
   })
 }
 
-export default connectAPI
+export default callAPI
