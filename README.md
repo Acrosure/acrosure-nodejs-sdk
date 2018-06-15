@@ -1,13 +1,19 @@
-# Acrosure Node SDK
+# NodeJS SDK
 
-The official Acrosure SDK for NodeJS.
+The official Acrosure SDK for NodeJS
 
 ## Installation & build
 
 install via npm
 
 ```shell
-npm install acrosure-nodejs-sdk
+npm install --save acrosure-nodejs-sdk
+```
+
+install via yarn
+
+```shell
+yarn add acrosure-nodejs-sdk
 ```
 
 ## Getting Started & Usage
@@ -40,7 +46,7 @@ const newApp = await client.applications.create({
 const existedApp = await client.applications.get('Your-App-ID')
 ```
 
-or create via Acrosure.base.Application
+or create via Acrosure.Application
 
 ```JavaScript
   const app = new acrosure.Application({
